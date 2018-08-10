@@ -1,0 +1,12 @@
+.recipe-grid-list {
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow: hidden;
+}
+
+.recipe-grid-list__grid-list {
+    height: 90%;
+    width: 95%;
+}
