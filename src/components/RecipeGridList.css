@@ -1,16 +1,3 @@
-.recipe-grid-list {
-    background-color: #fff;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    overflow: hidden;
-}
-
-.recipe-grid-list__grid-list {
-    height: 90%;
-    width: 95%;
-}
-
 .recipe-tile {
     max-height: 400px;
     max-width: 350px;
