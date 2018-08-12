@@ -14,7 +14,7 @@ export default function RecipeMethod(props) {
       <List>
         {props.steps.map((method, index) => (
           <ListItem key={method}>
-            <ListItemText primary={(index + 1) + method} />
+            <ListItemText primary={(index + 1) + ". " + method} />
           </ListItem>
         ))}
       </List>
