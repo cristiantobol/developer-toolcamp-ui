@@ -11,9 +11,11 @@ export default class RecipeGridList extends React.Component {
       <GridList cellHeight={180} cols={4}>
         {this.props.recipes.map(tile => (
           <RecipeTile
+            key={tile._id}
             difficulty={tile.difficulty}
             image={tile.image}
             title={tile.title}
+            onClick={() => this.props.onRecipeClick(tile._id)}
           />
         ))}
       </GridList>

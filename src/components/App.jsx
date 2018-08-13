@@ -3,6 +3,7 @@ import React from 'react';
 import request from 'request-promise-native';
 
 // Custom
+import RecipeDetails from './RecipeDetails';
 import RecipeGridList from './RecipeGridList';
 import TitleBar from './TitleBar';
 
@@ -11,10 +12,13 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+      recipe: null,
       recipes: [],
+      showDashboard: true,
     };
 
     this.getRecipeData = this.getRecipeData.bind(this);
+    this.handleTileSelected = this.handleTileSelected.bind(this);
 
     this.getRecipeData();
   }
@@ -27,14 +31,23 @@ class App extends React.Component {
   
     request(options)
       .then((recipes) => {this.setState({ recipes: recipes })})
-      .catch((err) => {console.log(`Error getting recipes ${err}`);});
+      .catch((err) => {console.log(`Error getting recipes ${err}`)});
+  }
+
+  handleTileSelected(id) {
+    const recipe = this.state.recipes.find(tile => tile._id === id);
+    this.setState({ 
+      recipe: recipe,
+      showDashboard: false,
+    });
   }
 
   render() {
     return (
       <div>
         <TitleBar />
-        <RecipeGridList recipes={this.state.recipes} />
+        {this.state.showDashboard && <RecipeGridList recipes={this.state.recipes} onRecipeClick={this.handleTileSelected}/>}
+        {!this.state.showDashboard && <RecipeDetails recipe={this.state.recipe} />}
       </div>
     );
   }

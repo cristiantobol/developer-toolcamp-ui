@@ -9,7 +9,7 @@ import './RecipeTile.css';
 export default class RecipeTile extends React.Component {
   render() {
     return (
-      <GridListTile className="recipe-tile">
+      <GridListTile className="recipe-tile" onClick={this.props.onClick}>
         <img
             src={this.props.image}
             alt={this.props.title}
