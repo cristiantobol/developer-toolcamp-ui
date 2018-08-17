@@ -12,7 +12,12 @@ export default class TitleBar extends React.Component {
     return (
       <AppBar position="static">
         <Toolbar>
-          <Typography color="inherit" variant="title">
+          <Typography
+            color="inherit"
+            variant="title"
+            className="title-bar__title"
+            onClick={this.props.onTitleClick}
+          >
             Recipes
           </Typography>
         </Toolbar>

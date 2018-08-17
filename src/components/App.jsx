@@ -18,6 +18,7 @@ class App extends React.Component {
     };
 
     this.getRecipeData = this.getRecipeData.bind(this);
+    this.handleDashBoard = this.handleDashBoard.bind(this);
     this.handleTileSelected = this.handleTileSelected.bind(this);
 
     this.getRecipeData();
@@ -34,6 +35,13 @@ class App extends React.Component {
       .catch((err) => {console.log(`Error getting recipes ${err}`)});
   }
 
+  handleDashBoard() {
+    this.setState({
+      showDashboard: true,
+      recipe: null,
+    });
+  }
+
   handleTileSelected(id) {
     const recipe = this.state.recipes.find(tile => tile._id === id);
     this.setState({ 
@@ -45,7 +53,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TitleBar />
+        <TitleBar onTitleClick={this.handleDashBoard} />
         {this.state.showDashboard && <RecipeGridList recipes={this.state.recipes} onRecipeClick={this.handleTileSelected}/>}
         {!this.state.showDashboard && <RecipeDetails recipe={this.state.recipe} />}
       </div>
