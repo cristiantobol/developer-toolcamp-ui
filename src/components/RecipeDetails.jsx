@@ -26,7 +26,6 @@ export default function RecipeDetails(props) {
           alt={recipe.title}
         />
         <RecipeMetaData
-          dateAdded={recipe.dateAdded}
           difficulty={recipe.difficulty}
         />
       </Paper>

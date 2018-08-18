@@ -14,9 +14,6 @@ export default function RecipeMetaData(props) {
         <ListItem key="difficulty">
           <ListItemText primary={"Difficulty: " + props.difficulty} />
         </ListItem>
-        <ListItem key="dateAdded">
-          <ListItemText primary={"Added: " + props.dateAdded} />
-        </ListItem>
       </List>
     </div>
   );
