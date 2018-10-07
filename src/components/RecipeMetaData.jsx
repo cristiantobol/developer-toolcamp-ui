@@ -7,14 +7,16 @@ import ListItemText from '@material-ui/core/ListItemText';
 // Styling
 import './RecipeMetaData.css';
 
-export default function RecipeMetaData(props) {
-  return (
-    <div className="recipe-meta-data">
-      <List>
-        <ListItem key="difficulty">
-          <ListItemText primary={"Difficulty: " + props.difficulty} />
-        </ListItem>
-      </List>
-    </div>
-  );
+export default class RecipeMetaData extends React.Component {
+  render() {
+    return (
+      <div className="recipe-meta-data">
+        <List>
+          <ListItem key="difficulty">
+            <ListItemText primary={"Difficulty: " + this.props.difficulty} />
+          </ListItem>
+        </List>
+      </div>
+    );
+  }
 }

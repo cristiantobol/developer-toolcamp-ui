@@ -11,32 +11,32 @@ import RecipeMethod from './RecipeMethod';
 // Styling
 import './RecipeDetails.css';
 
-export default function RecipeDetails(props) {
-  const { recipe } = props;
-
-  return (
-    <div>
-      <Paper className="recipe-details" elevation={1}>
-        <Typography variant="headline" component="h2">
-          {recipe.title}
-        </Typography>
-        <img
-          className="recipe-details__image"
-          src={recipe.image}
-          alt={recipe.title}
-        />
-        <RecipeMetaData
-          difficulty={recipe.difficulty}
-        />
-      </Paper>
-      <div className="recipe-details__method-ingredients-container">
-        <Paper className="recipe-details__ingredients-container" elevation={1}>
-          <RecipeIngredients ingredients={recipe.ingredients} />
+export default class RecipeDetails extends React.Component {
+  render() {
+    return (
+      <div>
+        <Paper className="recipe-details" elevation={1}>
+          <Typography variant="headline" component="h2">
+            {this.props.recipe.title}
+          </Typography>
+          <img
+            className="recipe-details__image"
+            src={this.props.recipe.image}
+            alt={this.props.recipe.title}
+          />
+          <RecipeMetaData
+            difficulty={this.props.recipe.difficulty}
+          />
         </Paper>
-        <Paper className="recipe-details__method-container" elevation={1}>          
-          <RecipeMethod steps={recipe.method} />
-        </Paper>
+        <div className="recipe-details__method-ingredients-container">
+          <Paper className="recipe-details__ingredients-container" elevation={1}>
+            <RecipeIngredients ingredients={this.props.recipe.ingredients} />
+          </Paper>
+          <Paper className="recipe-details__method-container" elevation={1}>
+            <RecipeMethod steps={this.props.recipe.method} />
+          </Paper>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
