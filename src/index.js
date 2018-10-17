@@ -1,8 +1,18 @@
 // 3rd Party
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux'
 
 // Custom
-import App from './components/App';
+import recipesReducer from './reducer'
+import AppContainer from './containers/AppContainer';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+const store = createStore(recipesReducer)
+
+ReactDOM.render(
+    <Provider store={store}>
+        <AppContainer />
+    </Provider>
+    , document.getElementById('root'));

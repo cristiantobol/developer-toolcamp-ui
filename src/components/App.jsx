@@ -13,7 +13,6 @@ class App extends React.Component {
 
     this.state = {
       recipe: null,
-      recipes: [],
       showDashboard: true,
     };
 
@@ -30,8 +29,9 @@ class App extends React.Component {
       json: true,
     };
   
+    this.props.fetchRecipes();
     request(options)
-      .then((recipes) => {this.setState({ recipes: recipes })})
+      .then((recipes) => {this.props.receiveRecipes(recipes)})
       .catch((err) => {console.log(`Error getting recipes ${err}`)});
   }
 
@@ -43,7 +43,7 @@ class App extends React.Component {
   }
 
   handleTileSelected(id) {
-    const recipe = this.state.recipes.find(tile => tile._id === id);
+    const recipe = this.props.recipes.find(tile => tile._id === id);
     this.setState({ 
       recipe: recipe,
       showDashboard: false,
@@ -54,7 +54,7 @@ class App extends React.Component {
     return (
       <div>
         <TitleBar onTitleClick={this.handleDashBoard} />
-        {this.state.showDashboard && <RecipeGridList recipes={this.state.recipes} onRecipeClick={this.handleTileSelected}/>}
+        {this.state.showDashboard && <RecipeGridList recipes={this.props.recipes} onRecipeClick={this.handleTileSelected}/>}
         {!this.state.showDashboard && <RecipeDetails recipe={this.state.recipe} />}
       </div>
     );
