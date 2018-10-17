@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 
 import App from "../components/App";
 import { fetchRecipesAction, receiveRecipesAction } from "../actions";
+import { getRecipes } from "../reducer";
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -12,7 +13,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
   return {
-    recipes: state.recipes
+    recipes: getRecipes(state)
   };
 };
 

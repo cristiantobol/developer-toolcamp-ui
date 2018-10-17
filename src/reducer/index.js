@@ -24,3 +24,14 @@ const recipesReducer = (state = initalState, action) => {
 };
 
 export default recipesReducer;
+
+
+// Selectors
+
+export function getRecipes(state){
+  return state.recipes;
+}
+
+export function getRecipe(state, recipeId){
+  return getRecipes(state).find(recipe => recipe._id === recipeId)
+}
