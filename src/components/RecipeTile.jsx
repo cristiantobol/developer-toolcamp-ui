@@ -16,7 +16,7 @@ export default class RecipeTile extends React.Component {
         />
         <GridListTileBar
           title={this.props.title}
-          subtitle={"Difficulty: " + this.props.difficulty}
+          subtitle={<div><span>Difficulty: {this.props.difficulty}</span>&nbsp;&nbsp;<span>{this.props.dateAdded}</span></div>}
         />
       </GridListTile>
     );

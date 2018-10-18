@@ -15,6 +15,7 @@ export default class RecipeGridList extends React.Component {
             difficulty={tile.difficulty}
             image={tile.image}
             title={tile.title}
+            dateAdded={tile.dateAdded}
             onClick={() => this.props.onRecipeClick(tile._id)}
           />
         ))}

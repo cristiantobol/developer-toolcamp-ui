@@ -22,6 +22,8 @@
   },
   "devDependencies": {
     "eslint": "^4.19.1",
+    "jspdf": "^1.4.1",
+    "moment": "^2.22.2",
     "react-scripts": "^1.1.4"
   }
 }
