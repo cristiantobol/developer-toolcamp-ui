@@ -3,18 +3,13 @@ import { connect } from "react-redux";
 
 // Custom
 import App from "../components/App";
-import { receiveRecipesAction } from "../actions/RecipesActions";
 
 const mapDispatchToProps = dispatch => {
-  return {
-    receiveRecipes: recipes => dispatch(receiveRecipesAction(recipes)),
-  };
+  return {};
 };
 
 const mapStateToProps = state => {
-  return {
-    recipes: state.recipes
-  };
+  return {};
 };
 
 export default connect(

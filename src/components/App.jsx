@@ -1,18 +1,19 @@
 // 3rd Party
 import React from "react";
 import request from "request-promise-native";
-
 // Custom
 import RecipeGridList from "./RecipeGridList";
+import RecipeDetails from "./RecipeDetails";
 import TitleBar from "./TitleBar";
-import RecipeDetailsContainer from "../containers/RecipeDetailsContainer";
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      recipeId: null,
+      recipes: [],
+      recipe: null,
       showDashboard: true
     };
 
@@ -31,7 +32,7 @@ class App extends React.Component {
 
     request(options)
       .then(recipes => {
-        this.props.receiveRecipes(recipes);
+        this.setState({ recipes: recipes });
       })
       .catch(err => {
         console.log(`Error getting recipes ${err}`);
@@ -41,13 +42,14 @@ class App extends React.Component {
   handleDashBoard() {
     this.setState({
       showDashboard: true,
-      recipeId: null
+      recipe: null
     });
   }
 
   handleTileSelected(id) {
+    const recipe = this.state.recipes.find(recipe => recipe._id === id);
     this.setState({
-      recipeId: id,
+      recipe: recipe,
       showDashboard: false
     });
   }
@@ -58,12 +60,12 @@ class App extends React.Component {
         <TitleBar onTitleClick={this.handleDashBoard} />
         {this.state.showDashboard && (
           <RecipeGridList
-            recipes={this.props.recipes}
+            recipes={this.state.recipes}
             onRecipeClick={this.handleTileSelected}
           />
         )}
         {!this.state.showDashboard && (
-          <RecipeDetailsContainer recipeId={this.state.recipeId} />
+          <RecipeDetails recipe={this.state.recipe} />
         )}
       </div>
     );

@@ -5,9 +5,7 @@ import { connect } from "react-redux";
 import RecipesDetails from "../components/RecipeDetails";
 
 const mapStateToProps = (state, ownProps) => {
-  return {
-    recipe: state.recipes.find(recipe => recipe._id === ownProps.recipeId)
-  };
+  return {};
 };
 
 export default connect(
