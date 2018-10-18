@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 // Custom
 import App from "../components/App";
 import { receiveRecipesAction } from "../actions/RecipesActions";
-import { getRecipes } from "../reducer/RecipesReducer";
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -14,7 +13,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
   return {
-    recipes: getRecipes(state)
+    recipes: state.recipes
   };
 };
 
