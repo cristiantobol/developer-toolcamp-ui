@@ -1,11 +1,10 @@
 // 3rd Party
 import React from "react";
 import request from "request-promise-native";
-
-// Custom
-import RecipeGridList from "./RecipeGridList";
-import TitleBar from "./TitleBar";
 import RecipeDetailsContainer from "../containers/RecipeDetailsContainer";
+import RecipeGridListContainer from "../containers/RecipeGridListContainer";
+import TitleBar from "./TitleBar";
+
 
 class App extends React.Component {
   constructor(props) {
@@ -57,10 +56,7 @@ class App extends React.Component {
       <div>
         <TitleBar onTitleClick={this.handleDashBoard} />
         {this.state.showDashboard && (
-          <RecipeGridList
-            recipes={this.props.recipes}
-            onRecipeClick={this.handleTileSelected}
-          />
+          <RecipeGridListContainer onRecipeClick={this.handleTileSelected} />
         )}
         {!this.state.showDashboard && (
           <RecipeDetailsContainer recipeId={this.state.recipeId} />

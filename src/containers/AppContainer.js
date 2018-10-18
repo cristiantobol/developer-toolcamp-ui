@@ -11,13 +11,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const mapStateToProps = state => {
-  return {
-    recipes: state.recipes
-  };
-};
-
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(App);
