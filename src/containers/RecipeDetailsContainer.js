@@ -1,7 +1,9 @@
+// 3rd Party
 import { connect } from "react-redux";
 
+// Custom
 import RecipesDetails from "../components/RecipeDetails";
-import { getRecipe } from "../reducer";
+import { getRecipe } from "../reducer/RecipesReducer";
 
 const mapStateToProps = (state, ownProps) => {
   return {

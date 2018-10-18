@@ -29,7 +29,6 @@ class App extends React.Component {
       json: true
     };
 
-    this.props.fetchRecipes();
     request(options)
       .then(recipes => {
         this.props.receiveRecipes(recipes);
