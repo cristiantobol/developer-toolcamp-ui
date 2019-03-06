@@ -8,6 +8,8 @@ instructions.
 toolcamp instructions.
 1. **stage-3** contains the stage 3 starting point code to use if you're following the developer 
 toolcamp instructions.
+1. **stage-4** contains the stage 4 starting point code to use if you're following the developer 
+toolcamp instructions.
 1. **completed** contains the code as it should look at the end of the developer toolcamp 
 instructions.
 

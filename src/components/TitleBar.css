@@ -1,0 +1,7 @@
+.title-bar {
+    flex-grow: 1;
+}
+
+.title-bar__title {
+    cursor: pointer;
+}
